@@ -396,12 +396,12 @@ const minePages = () => {
         }
 
         if (
-          data[organKey][contentKey].scrappedContent &&
-          data[organKey][contentKey].scrappedContent[0]
+          data[organKey][contentKey].scrapedContent &&
+          data[organKey][contentKey].scrapedContent[0]
         ) {
-          data[organKey][contentKey].scrappedContent.push(content);
+          data[organKey][contentKey].scrapedContent.push(content);
         } else {
-          data[organKey][contentKey].scrappedContent = [content];
+          data[organKey][contentKey].scrapedContent = [content];
         }
       });
     });
@@ -422,7 +422,7 @@ const prepareOrgansDataBeforaSend = (data) => {
     let terms = []
     for(const description in data[term]) {
       let dataScrapped = []
-      data[term][description].scrappedContent.forEach(data => {
+      data[term][description].scrapedContent.forEach(data => {
         let lines = []
         data.forEach( d =>{
           lines.push({data: d})
@@ -430,7 +430,7 @@ const prepareOrgansDataBeforaSend = (data) => {
       dataScrapped.push({dataScrapped: lines})
     })
 
-      data[term][description].scrappedContent = dataScrapped
+      data[term][description].scrapedContent = dataScrapped
       terms.push({description, dataContent: data[term][description]})
     }
     dataOrgans.push({organName: term, terms})
@@ -448,7 +448,8 @@ const prepereAllDataBeforeSend = (basicDocumentInformations, prepareOrgansDataBe
   }
 }
 const sendDataToServer = async (data) => {
-  const response = await axios.post('http://localhost:8080/scrapper', data)
+  // const response = await axios.post('https://scrapper-connector.herokuapp.com/scrapper', data)
+  const response = await axios.post('http://10.0.0.101:8080/scraper', data)
   console.log(response)
 }
 

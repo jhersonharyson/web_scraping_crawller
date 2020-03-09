@@ -1,0 +1,25 @@
+{
+  "name": "scaper2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.3",
+    "cli-progress": "^3.6.0",
+    "crypto": "^1.0.1",
+    "express": "^4.17.1",
+    "kafkajs": "^1.12.0",
+    "multer": "^1.4.2",
+    "nodemon": "^2.0.2",
+    "puppeteer": "^2.1.1"
+  }
+}
